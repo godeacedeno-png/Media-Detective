@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Media Detective</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="navbar">
+<div class="logo"><span>🕵️</span> MEDIA DETECTIVE</div>
+<nav>
+<a href="#home" onclick="showHome()">HOME</a>
+<a href="#mil" onclick="showMIL()">MIL</a>
+<a href="#cases" onclick="showCases()">CASES</a>
+</nav>
+</header>
+
+<main id="home">
+
+<section class="hero">
+<div class="hero-content">
+<div class="system-label">MEDIA INVESTIGATION SYSTEM</div>
+<h1>DON'T JUST SEE IT.<span>INVESTIGATE IT.</span></h1>
+<p>Learn how to examine sources, identify evidence, recognize purpose, and think critically before believing or sharing information.</p>
+<button class="primary-btn" onclick="startInvestigation()">START INVESTIGATION →</button>
+</div>
+
+<div class="case-preview">
+<div class="case-header"><span>CASE FILE</span><strong>#001</strong></div>
+<div class="case-status"><span class="status-dot"></span> CASE OPEN</div>
+<div class="case-preview-body">
+<small>CASE TITLE</small>
+<h2>THE VIRAL POST</h2>
+<p>A social media claim is spreading rapidly. Your task is to investigate whether the information deserves your trust.</p>
+</div>
+<div class="case-footer"><span>CLASSIFICATION</span><strong>MIL TRAINING</strong></div>
+</div>
+</section>
+
+<section class="how-section">
+<div class="section-heading">
+<span>INVESTIGATION PROTOCOL</span>
+<h2>HOW A MEDIA DETECTIVE WORKS</h2>
+</div>
+
+<div class="protocol-grid">
+<div class="protocol-card"><div class="protocol-number">01</div><h3>OBSERVE</h3><p>Examine the information carefully before accepting the claim.</p></div>
+<div class="protocol-card"><div class="protocol-number">02</div><h3>QUESTION</h3><p>Ask who created the information and why it was created.</p></div>
+<div class="protocol-card"><div class="protocol-number">03</div><h3>VERIFY</h3><p>Look for evidence and reliable sources that support the claim.</p></div>
+<div class="protocol-card"><div class="protocol-number">04</div><h3>THINK</h3><p>Evaluate the information before believing or sharing it.</p></div>
+</div>
+</section>
+</main>
+
+<section id="mil" class="investigation hidden">
+<div class="investigation-top">
+<div><span class="system-label">MEDIA & INFORMATION LITERACY</span><h1>MIL FIELD GUIDE</h1></div>
+</div>
+
+<div class="case-board">
+<div class="board-title">📚 MIL QUICK GUIDE</div>
+<div class="evidence-grid">
+
+<div class="evidence-card"><div class="evidence-icon">🔎</div><h3>SOURCE</h3><p>Who created the information? Is the source identifiable and credible?</p></div>
+<div class="evidence-card"><div class="evidence-icon">🎯</div><h3>PURPOSE</h3><p>Why was the information created? Inform, persuade, entertain, or sell?</p></div>
+<div class="evidence-card"><div class="evidence-icon">🧾</div><h3>EVIDENCE</h3><p>What facts, data, documents, or reliable references support the claim?</p></div>
+<div class="evidence-card"><div class="evidence-icon">🧠</div><h3>CONTEXT</h3><p>Does the information make sense when the surrounding context is examined?</p></div>
+
+</div>
+<button class="primary-btn" onclick="showHome()">← BACK HOME</button>
+</div>
+</section>
+
+<section id="cases" class="investigation hidden">
+
+<div class="investigation-top">
+<div>
+<span class="system-label">CASE DATABASE</span>
+<h1>ACTIVE CASES</h1>
+</div>
+</div>
+
+<div class="case-board">
+<div class="board-title">🗂️ AVAILABLE CASES</div>
+
+<div class="evidence-grid">
+
+<div id="case1Card" class="evidence-card case-clickable" onclick="startInvestigation()">
+<div class="evidence-label">CASE #001</div>
+<div class="evidence-icon">📱</div>
+<h3>THE VIRAL POST</h3>
+<p>Investigate a social media claim and determine whether it should be trusted.</p>
+<span class="evidence-tag">OPEN CASE</span>
+</div>
+
+<div id="case2Card" class="evidence-card locked-case">
+<div class="evidence-label">CASE #002</div>
+<div class="evidence-icon">🔒</div>
+<h3>THE MISLEADING HEADLINE</h3>
+<p>Complete Case #001 to unlock this investigation.</p>
+<span id="case2Tag" class="evidence-tag">LOCKED</span>
+</div>
+
+<div id="case3Card" class="evidence-card locked-case">
+<div class="evidence-label">CASE #003</div>
+<div class="evidence-icon">🔒</div>
+<h3>THE VIRAL VIDEO</h3>
+<p>Complete Case #002 to unlock this investigation.</p>
+<span class="evidence-tag">LOCKED</span>
+</div>
+
+</div>
+</div>
+</section>
+
+<section id="investigation" class="investigation hidden">
+
+<div class="investigation-top">
+<div><span class="system-label">ACTIVE INVESTIGATION</span><h1>CASE #001</h1></div>
+<div class="case-hud">
+<div><small>STATUS</small><strong class="open-status">● OPEN</strong></div>
+<div><small>EVIDENCE</small><strong id="evidenceCount">0/4</strong></div>
+</div>
+</div>
+
+<div class="case-board">
+<div class="board-title">📌 CASE BOARD</div>
+
+<div class="social-post-layout real-feed-layout">
+
+<article class="social-post">
+  <div class="social-post-source">
+    <div class="social-avatar">MD</div>
+    <div class="social-source-info">
+      <strong>Daily Science Buzz</strong>
+      <span>Unverified source · Public post · Sample case</span>
+    </div>
+    <span class="social-menu">•••</span>
+  </div>
+
+  <div class="social-post-caption">
+    <span class="social-breaking">TRENDING CLAIM</span>
+    <p>BREAKING: New research suggests drinking coffee could make you smarter! Scientists say caffeine may boost brainpower, improve focus, and help students think faster. ☕🧠</p>
+    <span class="social-hashtag">#Science #Coffee #Study</span>
+  </div>
+
+  <div class="social-post-image">
+    <div class="social-image-top">DAILY SCIENCE BUZZ</div>
+    <div class="social-coffee-icon">☕</div>
+    <div class="social-image-headline">COFFEE MAKES<br>YOU SMARTER?</div>
+    <div class="social-image-subtitle">The daily habit that could boost your brain?</div>
+    <div class="social-image-stamp">THE BRAINPOWER EFFECT</div>
+  </div>
+
+  <div class="social-reaction-summary">
+    <span>👍 1.2K reactions</span>
+    <span>💬 248 comments</span>
+  </div>
+
+  <div class="social-action-row">
+    <span>♡ Like</span>
+    <span>▢ Comment</span>
+    <span>↗ Share</span>
+  </div>
+
+  <div class="social-post-warning">
+    <span>⚠</span>
+    <div><strong>CLAIM NOT VERIFIED</strong><p>Popularity and engagement do not prove that a scientific claim is true.</p></div>
+  </div>
+</article>
+
+
+
+</div>
+</div>
+
+<div class="case-board">
+<div class="board-title">🧠 DETECTIVE QUESTIONS</div>
+
+<div class="questions">
+
+<label>01. Is the claim automatically trustworthy?
+<select id="q1" style="display:none !important" hidden aria-hidden="true">
+<option value="">Select an answer</option>
+<option value="correct">No, it needs verification.</option>
+<option value="wrong">Yes, because it is viral.</option>
+<option value="wrong">Yes, because many people believe it.</option>
+<option value="wrong">Yes, because it sounds convincing.</option>
+</select>
+</label>
+
+<label>02. What should you check first?
+<select id="q2" style="display:none !important" hidden aria-hidden="true">
+<option value="">Select an answer</option>
+<option value="correct">The source and supporting evidence.</option>
+<option value="wrong">How many people shared it.</option>
+<option value="wrong">Whether it is popular online.</option>
+<option value="wrong">How quickly it is spreading.</option>
+</select>
+</label>
+
+<label>03. Why should you examine the purpose?
+<select id="q3" style="display:none !important" hidden aria-hidden="true">
+<option value="">Select an answer</option>
+<option value="correct">Purpose can affect how information is presented.</option>
+<option value="wrong">Purpose does not matter.</option>
+<option value="wrong">Only the number of views matters.</option>
+<option value="wrong">Popular posts never have a purpose.</option>
+</select>
+</label>
+
+<label>04. What should a media detective do before sharing?
+<select id="q4" style="display:none !important" hidden aria-hidden="true">
+<option value="">Select an answer</option>
+<option value="correct">Verify the information using reliable evidence.</option>
+<option value="wrong">Share it immediately.</option>
+<option value="wrong">Trust it because it looks professional.</option>
+<option value="wrong">Ignore the source completely.</option>
+</select>
+</label>
+
+<label>
+05. What is the safest conclusion about the coffee claim?
+<select id="q5" style="display:none !important" hidden aria-hidden="true">
+<option value="">Select an answer</option>
+<option value="correct">The claim should remain unverified until stronger evidence is found.</option>
+<option value="wrong">The claim must be true because it sounds scientific.</option>
+<option value="wrong">The claim is true because many people shared it.</option>
+<option value="wrong">The claim does not need any evidence.</option>
+</select>
+</label>
+
+</div>
+
+<button class="primary-btn" onclick="solveCase()">SOLVE CASE →</button>
+<button class="secondary-btn" onclick="showCases()">← CASE FILES</button>
+</div>
+</section>
+
+
+<section id="case2" class="investigation hidden">
+
+<div class="investigation-top">
+<div>
+<span class="system-label">ACTIVE INVESTIGATION</span>
+<h1>CASE #002</h1>
+</div>
+</div>
+
+<div class="case-board">
+<div class="board-title">📰 CASE FILE — THE MISLEADING HEADLINE</div>
+
+<div class="social-post-layout real-feed-layout">
+<article class="social-post">
+<div class="social-post-source"><div class="social-avatar">DS</div><div class="social-source-info"><strong>Daily Student Update</strong><span>Unverified source · Public post · Sample case</span></div><span class="social-menu">•••</span></div>
+<div class="social-post-caption"><span class="social-breaking">TRENDING RESEARCH</span><p>NEW STUDY ALERT! Heavy phone use may affect students' academic performance. But does this headline accurately represent what researchers found?</p><span class="social-hashtag">#Education #StudentLife #Study</span></div>
+<div class="social-post-image"><div class="social-image-top">DAILY STUDENT UPDATE</div><div class="social-coffee-icon">📱</div><div class="social-image-headline">DO PHONES<br>AFFECT GRADES?</div><div class="social-image-subtitle">What does the original research actually say?</div><div class="social-image-stamp">INVESTIGATE THE CLAIM</div></div>
+<div class="social-reaction-summary"><span>👍 1.8K reactions</span><span>💬 362 comments</span></div>
+<div class="social-action-row"><span>♡ Like</span><span>▢ Comment</span><span>↗ Share</span></div>
+<div class="social-post-warning"><span>⚠</span><div><strong>CLAIM NOT VERIFIED</strong><p>A headline alone cannot tell you whether a study's findings have been represented accurately.</p></div></div>
+</article></div>
+</div>
+
+<div class="case-board">
+<div class="board-title">🧠 DETECTIVE QUESTIONS</div>
+
+<div class="questions">
+
+<label>
+01. Should you trust a headline by itself?
+<select id="c2q1" style="display:none !important" hidden aria-hidden="true">
+<option value="">Select an answer</option>
+<option value="correct">No. Check the full source and evidence.</option>
+<option value="wrong">Yes. Headlines are always accurate.</option>
+<option value="wrong">Yes. Headlines cannot be misleading.</option>
+<option value="wrong">Yes. The headline is enough evidence.</option>
+</select>
+</label>
+
+<label>
+02. What should you do with an exaggerated headline?
+<select id="c2q2" style="display:none !important" hidden aria-hidden="true">
+<option value="">Select an answer</option>
+<option value="correct">Read the original source and examine its context.</option>
+<option value="wrong">Share it because it sounds convincing.</option>
+<option value="wrong">Trust it because it has a strong headline.</option>
+<option value="wrong">Ignore the original research.</option>
+</select>
+</label>
+
+<label>
+03. Why is context important?
+<select id="c2q3" style="display:none !important" hidden aria-hidden="true">
+<option value="">Select an answer</option>
+<option value="correct">It helps determine what the information actually means.</option>
+<option value="wrong">Context does not affect interpretation.</option>
+<option value="wrong">Context is unnecessary.</option>
+<option value="wrong">Only the headline matters.</option>
+</select>
+</label>
+
+<label>
+04. What should you do if you only see a screenshot of the headline?
+<select id="c2q4" style="display:none !important" hidden aria-hidden="true">
+<option value="">Select an answer</option>
+<option value="correct">Find the complete article and check its context.</option>
+<option value="wrong">Share the screenshot immediately.</option>
+<option value="wrong">Assume the headline proves the claim.</option>
+<option value="wrong">Ignore the original article.</option>
+</select>
+</label>
+
+<label>
+05. Why can a headline be misleading?
+<select id="c2q5" style="display:none !important" hidden aria-hidden="true">
+<option value="">Select an answer</option>
+<option value="correct">It may exaggerate what the research actually demonstrates.</option>
+<option value="wrong">Headlines always contain the complete research.</option>
+<option value="wrong">Headlines cannot change the meaning of research.</option>
+<option value="wrong">The headline is always more reliable than the study.</option>
+</select>
+</label>
+
+</div>
+
+<button class="primary-btn" onclick="solveCase2()">SOLVE CASE →</button>
+<button class="secondary-btn" onclick="showCases()">← CASE FILES</button>
+</div>
+
+</section>
+
+<section id="case3" class="investigation hidden">
+
+<div class="investigation-top">
+<div>
+<span class="system-label">ACTIVE INVESTIGATION</span>
+<h1>CASE #003</h1>
+</div>
+</div>
+
+<div class="case-board">
+<div class="board-title">🎬 CASE FILE — THE VIRAL VIDEO</div>
+
+<div class="social-post-layout real-feed-layout">
+<article class="social-post">
+<div class="social-post-source"><div class="social-avatar">TN</div><div class="social-source-info"><strong>Trending Now</strong><span>Unverified source · Public post · Sample case</span></div><span class="social-menu">•••</span></div>
+<div class="social-post-caption"><span class="social-breaking">BREAKING · GOING VIRAL</span><p>WATCH THIS CLIP! People online claim this video shows an event from just hours ago. Thousands are sharing it—but when was it actually recorded?</p><span class="social-hashtag">#Breaking #ViralVideo #Trending</span></div>
+<div class="social-post-image"><div class="social-image-top">TRENDING NOW</div><div class="social-coffee-icon">🎬</div><div class="social-image-headline">VIRAL VIDEO:<br>REAL OR OLD?</div><div class="social-image-subtitle">Can you verify the original source and date?</div><div class="social-image-stamp">INVESTIGATE THE CLAIM</div></div>
+<div class="social-reaction-summary"><span>👍 4.8K reactions</span><span>💬 1.1K comments</span></div>
+<div class="social-action-row"><span>♡ Like</span><span>▢ Comment</span><span>↗ Share</span></div>
+<div class="social-post-warning"><span>⚠</span><div><strong>CLAIM NOT VERIFIED</strong><p>Views and shares do not prove when or where a video was recorded.</p></div></div>
+</article></div>
+</div>
+
+<div class="case-board">
+<div class="board-title">🧠 DETECTIVE QUESTIONS</div>
+
+<div class="questions">
+
+<label>
+01. What should you verify first?
+<select id="c3q1" style="display:none !important" hidden aria-hidden="true">
+<option value="">Select an answer</option>
+<option value="correct">The original source, date, and context.</option>
+<option value="wrong">Only the number of views.</option>
+<option value="wrong">Only how many people shared it.</option>
+<option value="wrong">Only video popularity matters.</option>
+</select>
+</label>
+
+<label>
+02. Can an old video be presented as a new event?
+<select id="c3q2" style="display:none !important" hidden aria-hidden="true">
+<option value="">Select an answer</option>
+<option value="correct">Yes. The date and original context should be checked.</option>
+<option value="wrong">No. Videos always show current events.</option>
+<option value="wrong">Yes, but the date never matters.</option>
+<option value="wrong">No. Old videos cannot be reused.</option>
+</select>
+</label>
+
+<label>
+03. What should you do before sharing the video?
+<select id="c3q3" style="display:none !important" hidden aria-hidden="true">
+<option value="">Select an answer</option>
+<option value="correct">Verify the video using reliable evidence.</option>
+<option value="wrong">Share it immediately.</option>
+<option value="wrong">Trust it because it looks convincing.</option>
+<option value="wrong">Assume the video is current without checking.</option>
+</select>
+</label>
+
+<label>
+04. Why should you check the original upload date?
+<select id="c3q4" style="display:none !important" hidden aria-hidden="true">
+<option value="">Select an answer</option>
+<option value="correct">The date can reveal whether old footage is being presented as new.</option>
+<option value="wrong">The date does not matter.</option>
+<option value="wrong">Older videos are always false.</option>
+<option value="wrong">Only the number of views matters.</option>
+</select>
+</label>
+
+<label>
+05. Two accounts post the exact same video. What should you investigate?
+<select id="c3q5" style="display:none !important" hidden aria-hidden="true">
+<option value="">Select an answer</option>
+<option value="correct">Whether both accounts copied the same original source.</option>
+<option value="wrong">Which account has more followers.</option>
+<option value="wrong">Which post has more likes.</option>
+<option value="wrong">Which caption sounds more convincing.</option>
+</select>
+</label>
+
+</div>
+
+<button class="primary-btn" onclick="solveCase3()">SOLVE CASE →</button>
+<button class="secondary-btn" onclick="showCases()">← CASE FILES</button>
+</div>
+
+</section>
+
+<section id="result" class="investigation hidden">
+<div class="case-board result-board">
+<div class="system-label">INVESTIGATION COMPLETE</div>
+<h1>CASE CLOSED</h1>
+<div class="score-display"><span id="score">0/100</span></div>
+<p id="feedback"></p>
+<button class="primary-btn" onclick="restartCase()">🔄 INVESTIGATE AGAIN</button>
+<button class="secondary-btn" onclick="showHome()">← HOME</button>
+</div>
+</section>
+
+<script src="script.js"></script>
+<script src="speaker.js"></script>
+</body>
+</html>
